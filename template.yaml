@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  buy
+  Sample SAM Template for buy producer
+Globals:
+  Function:
+    Timeout: 5
+    MemorySize: 128
+    Runtime: go1.x
+    Architectures:
+      - x86_64    
+
+Resources:
+  buyProducer:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: buy/cmd
+      Handler: producer
+      Events:
+        CatchAll:
+          Type: Api
+          Properties:
+            Path: /buy-producer
+            Method: POST       
+      Environment:
+        Variables:
+          QUEUE_URL: https://sqs.us-west-1.amazonaws.com/763564070137/buy_manager
+      Policies:
+        - Version: 2012-10-17
+          Statement:
+            - Effect: Allow
+              Action: sqs:SendMessage
+              Resource: arn:aws:sqs:us-west-1:763564070137:buy_manager
