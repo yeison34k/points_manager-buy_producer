@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"os/exec"
 	"producer/internal/domain"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -33,6 +34,11 @@ func NewSQSHandler(queueURL string) *SQSHandler {
 }
 
 func (h *SQSHandler) CreateBuy(buy *domain.Buy) error {
+	id, err := exec.Command("uuidgen").Output()
+	if err != nil {
+		log.Fatal("fallo al crear el uuid: %w", err)
+	}
+	buy.ID = string(id)
 	buyJSON, err := json.Marshal(buy)
 	if err != nil {
 		return fmt.Errorf("fallo al convertir el punto a JSON: %w", err)

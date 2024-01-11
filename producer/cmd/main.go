@@ -41,7 +41,7 @@ func (h *LambdaHandler) HandleRequest(ctx context.Context, request events.APIGat
 			StatusCode: 500,
 		}, err
 	}
-
+	
 	err = h.buyHandler.HandleBuyCreation(&body)
 	if err != nil {
 		log.Fatal("Error HandleBuyCreation:", err)
