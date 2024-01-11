@@ -15,7 +15,7 @@ Resources:
   buyProducer:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: buy/cmd
+      CodeUri: producer/cmd
       Handler: producer
       Events:
         CatchAll:
