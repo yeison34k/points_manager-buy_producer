@@ -13,7 +13,7 @@ Globals:
   Api:
     Cors:
       AllowHeaders: "'Content-Type'"
-      AllowOrigin: "'d1pu4sj071l6zn.cloudfront.net'" 
+      AllowOrigin: "'https://d1pu4sj071l6zn.cloudfront.net'" 
 
 Resources:
   buyProducer:
