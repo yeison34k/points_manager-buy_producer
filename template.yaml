@@ -10,6 +10,8 @@ Globals:
     Runtime: go1.x
     Architectures:
       - x86_64    
+  Api:
+    Cors: "'*'"
 
 Resources:
   buyProducer:
@@ -20,7 +22,7 @@ Resources:
       Events:
         CatchAll:
           Type: Api
-          Properties:
+          Properties: 
             Path: /buy-producer
             Method: POST       
       Environment:
