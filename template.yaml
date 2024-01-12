@@ -10,8 +10,6 @@ Globals:
     Runtime: go1.x
     Architectures:
       - x86_64    
-  Api:
-    Cors: "'*'"
 
 Resources:
   buyProducer:
@@ -24,7 +22,7 @@ Resources:
           Type: Api
           Properties: 
             Path: /buy-producer
-            Method: POST       
+            Method: POST      
       Environment:
         Variables:
           QUEUE_URL: https://sqs.us-west-1.amazonaws.com/763564070137/buy_manager
