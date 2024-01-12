@@ -25,7 +25,7 @@ Resources:
             Method: POST
             Cors:
               AllowHeaders: "'Content-Type'"
-              AllowOrigin: "''"                
+              AllowOrigin: "'d1pu4sj071l6zn.cloudfront.net'"                
       Environment:
         Variables:
           QUEUE_URL: https://sqs.us-west-1.amazonaws.com/763564070137/buy_manager
