@@ -22,7 +22,10 @@ Resources:
           Type: Api
           Properties: 
             Path: /buy-producer
-            Method: POST      
+            Method: POST
+            Cors:
+              AllowHeaders: "'Content-Type'"
+              AllowOrigin: "''"                
       Environment:
         Variables:
           QUEUE_URL: https://sqs.us-west-1.amazonaws.com/763564070137/buy_manager
