@@ -41,7 +41,7 @@ func (h *LambdaHandler) HandleRequest(ctx context.Context, request events.APIGat
 			StatusCode: 500,
 		}, err
 	}
-	
+
 	err = h.buyHandler.HandleBuyCreation(&body)
 	if err != nil {
 		log.Fatal("Error HandleBuyCreation:", err)
@@ -60,7 +60,12 @@ func (h *LambdaHandler) HandleRequest(ctx context.Context, request events.APIGat
 
 	return events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       string(r),
+		Headers: map[string]string{
+			"Access-Control-Allow-Origin":  "https://d1pu4sj071l6zn.cloudfront.net/",
+			"Access-Control-Allow-Methods": "POST",
+			"Access-Control-Allow-Headers": "Content-Type",
+		},
+		Body: string(r),
 	}, nil
 }
 
