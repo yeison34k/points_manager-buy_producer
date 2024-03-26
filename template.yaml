@@ -36,3 +36,6 @@ Resources:
             - Effect: Allow
               Action: sqs:SendMessage
               Resource: arn:aws:sqs:us-west-1:763564070137:buy_manager
+
+
+              
